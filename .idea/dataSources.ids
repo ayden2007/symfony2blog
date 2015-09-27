@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - symfony2blog@localhost" uuid="4c875dfd-0f5b-41fb-8e5b-e7bbc7daf965">
+    <database-info product="MySQL" version="5.6.26" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="symfony2blog"/>
+    <table name="authors" schema="" catalog="symfony2blog" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="createdAt" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_885DBAFAF675F31B" table="posts" schema="" catalog="symfony2blog" columns="author_id"/>
+    </table>
+    <table name="posts" schema="" catalog="symfony2blog" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="author_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="createdAt" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="title" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="body" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_885DBAFAF675F31B" columns="author_id" ref-table="authors" ref-schema="" ref-catalog="symfony2blog" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="IDX_885DBAFAF675F31B" unique="false" columns="author_id"/>
+    </table>
+  </data-source>
+</component>
